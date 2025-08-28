@@ -103,7 +103,7 @@ const Hero: React.FC<HeroProps> = ({ personalInfo }) => {
             <div className="hero__avatar">
               <div className="hero__avatar-image">
                 <img 
-                  src="/ana_perfil.jpg"
+                  src={import.meta.env.BASE_URL + 'ana_perfil.jpg'}
                   alt={personalInfo.name}
                   className="hero__avatar-photo"
                   onError={(e) => {
