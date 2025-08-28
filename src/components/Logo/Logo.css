@@ -1,0 +1,128 @@
+/* Logo Component Styles */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.logo__svg {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.45));
+}
+
+/* Logo Variants */
+.logo--primary .logo__arc,
+.logo--primary .logo__arc-tail { stroke: url(#primaryGradient); }
+.logo--primary .logo__text { fill: var(--color-accent); letter-spacing: 1px; }
+.logo--primary .logo__arc-bg { stroke: rgba(0,0,0,0.08); }
+
+.logo--white .logo__arc,
+.logo--white .logo__arc-tail { stroke: rgba(99, 102, 241, 0.75); }
+.logo--white .logo__text { fill: rgba(51,65,85,0.95); }
+.logo--white .logo__arc-bg { stroke: rgba(51,65,85,0.15); }
+
+.logo--gradient .logo__arc,
+.logo--gradient .logo__arc-tail { stroke: url(#primaryGradient); }
+.logo--gradient .logo__text { fill: var(--color-primary); }
+.logo--gradient .logo__arc-bg { stroke: rgba(255,255,255,0.08); }
+
+/* Sizes */
+.logo--small {
+  width: 32px;
+  height: 32px;
+}
+
+.logo--medium {
+  width: 48px;
+  height: 48px;
+}
+
+.logo--large {
+  width: 64px;
+  height: 64px;
+}
+
+/* Animations */
+.logo--animated:hover .logo__svg {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 16px rgba(124, 58, 237, 0.5));
+}
+
+.logo--animated .logo__ring {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: ringSpin 8s linear infinite;
+}
+.logo--animated .logo__text { animation: none; }
+
+/* Sweep animation around the circle */
+.logo--animated .logo__arc,
+.logo--animated .logo__arc-tail {
+  stroke-dasharray: none;
+  animation: none;
+}
+
+@keyframes sweep {
+  0% { stroke-dashoffset: 30; }
+  50% { stroke-dashoffset: 140; }
+  100% { stroke-dashoffset: 30; }
+}
+
+@keyframes ringSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* removed float/pulse per user request */
+
+/* Dark theme overrides to ensure contrast */
+[data-theme="dark"] .logo__text {
+  fill: #ffffff !important;
+  stroke: transparent !important;
+  text-shadow: 0 0 12px var(--neon-primary-glow);
+}
+
+/* Keyframes */
+@keyframes logoRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes logoGlow {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.8; }
+}
+
+@keyframes logoPulse {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .logo--primary .logo__svg,
+[data-theme="dark"] .logo--gradient .logo__svg {
+  filter: drop-shadow(0 0 18px var(--neon-primary-glow));
+}
+
+[data-theme="dark"] .logo--animated:hover .logo__svg {
+  filter: drop-shadow(0 0 28px var(--neon-primary-glow));
+}
+
+[data-theme="dark"] .logo--animated:hover .logo__pulse {
+  stroke: var(--color-accent);
+  filter: drop-shadow(0 0 8px var(--neon-primary-glow));
+}
+
+/* SVG Gradients: definidos inline no SVG via <defs> */

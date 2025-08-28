@@ -1,0 +1,106 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding-top: 0;
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.App {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Selection styles */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+::-moz-selection {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* Print styles */
+@media print {
+  .App {
+    background: white !important;
+    color: black !important;
+  }
+  
+  header,
+  footer {
+    display: none !important;
+  }
+  
+  .section {
+    page-break-inside: avoid;
+    padding: 1.25rem 0 !important;
+  }
+  
+  .card,
+  .projects__card,
+  .skills__category,
+  .experience__item-content,
+  .contact__form-container,
+  .contact__info {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  /* Títulos com cor sólida e sublinhado leve */
+  .section-title {
+    -webkit-text-fill-color: initial !important;
+    background: none !important;
+    color: #111 !important;
+    text-shadow: none !important;
+  }
+  .section-title::after {
+    background: #555 !important;
+  }
+
+  /* Tags e badges impressos legíveis */
+  .skills__tag--primary,
+  .projects__card-tech,
+  .experience__item-type {
+    color: #111 !important;
+    background: #f4f4f4 !important;
+    border: 1px solid #ddd !important;
+  }
+
+  /* Botões/links removidos na impressão */
+  .hero__actions,
+  .projects__card-actions,
+  .footer__social,
+  .header__actions {
+    display: none !important;
+  }
+}

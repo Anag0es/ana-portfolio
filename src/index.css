@@ -1,0 +1,356 @@
+/* Reset e estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Sistema de cores cyberpunk científico - Modo Claro */
+  
+  /* Cores base neutras com alto contraste */
+  --color-primary: #0a0f1c;        /* Azul muito escuro para texto principal */
+  --color-secondary: #334155;      /* Cinza azulado para texto secundário */
+  --color-tertiary: #64748b;       /* Cinza médio para texto terciário */
+  --color-light-gray: #f8fafc;     /* Cinza muito claro para backgrounds */
+  --color-medium-gray: #e2e8f0;    /* Cinza médio para bordas */
+  --color-white: #ffffff;          /* Branco puro */
+  
+  /* Paleta de acentos com contraste científico */
+  --color-accent: #6366f1;         /* Indigo vibrante (cor principal) */
+  --color-accent-light: #818cf8;   /* Indigo claro */
+  --color-accent-dark: #4f46e5;    /* Indigo escuro */
+  
+  /* Cores complementares e triádicas */
+  /* Removido verde no modo claro para reduzir conflito com roxo */
+  --color-secondary-accent: #94a3b8; /* Cinza azulado para elementos de apoio */
+  --color-tertiary-accent: #cbd5e1;  /* Cinza claro para superfícies suaves */
+  --color-contrast-accent: #f59e0b;  /* Âmbar (contraste quente) */
+  
+  /* Cores de status semânticas */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #06b6d4;
+  
+  /* Gradientes harmoniosos */
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #818cf8 50%, #a5b4fc 100%);
+  --gradient-secondary: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%);
+  --gradient-accent: linear-gradient(90deg, #6366f1, #818cf8);
+  --gradient-contrast: linear-gradient(135deg, #6366f1 0%, #f59e0b 100%);
+  --gradient-rainbow: linear-gradient(135deg, #6366f1 0%, #06b6d4 25%, #10b981 50%, #f59e0b 75%, #ef4444 100%);
+  
+  /* Efeitos neon com cores distintas */
+  --neon-primary: #6366f1;
+  --neon-primary-glow: rgba(99, 102, 241, 0.4);
+  --neon-secondary: #94a3b8;
+  --neon-secondary-glow: rgba(148, 163, 184, 0.4);
+  --neon-accent-glow: rgba(245, 158, 11, 0.3);
+  
+  /* Tipografia */
+  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Espaçamentos */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+  
+  /* Bordas */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Modo escuro - tema cyberpunk científico */
+[data-theme="dark"] {
+  /* Cores de texto com contraste otimizado */
+  --color-primary: #f8fafc;        /* Branco quase puro para máximo contraste */
+  --color-secondary: #cbd5e1;      /* Cinza claro para texto secundário */
+  --color-tertiary: #94a3b8;       /* Cinza médio para texto terciário */
+  
+  /* Backgrounds escuros em gradação */
+  --color-light-gray: #1e293b;     /* Cinza escuro para cards */
+  --color-medium-gray: #334155;    /* Cinza médio para bordas */
+  --color-white: #0f172a;          /* Azul muito escuro para background principal */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  
+  /* Acentos com luminosidade aumentada para modo escuro */
+  --color-accent: #818cf8;         /* Indigo mais claro */
+  --color-accent-light: #a5b4fc;   /* Indigo muito claro */
+  --color-accent-dark: #6366f1;    /* Indigo padrão */
+  
+  /* Cores complementares ajustadas para escuro */
+  /* Removido verde e ciano no modo escuro; acentos neutros */
+  --color-secondary-accent: #94a3b8; /* Cinza azulado claro */
+  --color-tertiary-accent: #e2e8f0;  /* Cinza muito claro */
+  --color-contrast-accent: #fbbf24;  /* Âmbar mais claro */
+  
+  /* Cores de status otimizadas */
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #22d3ee;
+  
+  /* Gradientes com maior luminosidade */
+  --gradient-primary: linear-gradient(135deg, #818cf8 0%, #a5b4fc 50%, #c7d2fe 100%);
+  --gradient-secondary: linear-gradient(135deg, #6366f1 0%, #818cf8 50%, #a5b4fc 100%);
+  --gradient-accent: linear-gradient(90deg, #818cf8, #a5b4fc);
+  --gradient-contrast: linear-gradient(135deg, #818cf8 0%, #fbbf24 100%);
+  --gradient-rainbow: linear-gradient(135deg, #818cf8 0%, #94a3b8 50%, #fbbf24 100%);
+  
+  /* Efeitos neon intensificados */
+  --neon-primary: #818cf8;
+  --neon-primary-glow: rgba(129, 140, 248, 0.6);
+  --neon-secondary: #94a3b8;
+  --neon-secondary-glow: rgba(148, 163, 184, 0.6);
+  --neon-accent-glow: rgba(251, 191, 36, 0.5);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.6;
+  color: var(--color-secondary);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Background cyberpunk para modo escuro */
+[data-theme="dark"] body {
+  background: var(--bg-primary);
+  background-image: 
+    radial-gradient(circle at 20% 50%, var(--neon-primary-glow) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, var(--neon-secondary-glow) 0%, transparent 60%),
+    radial-gradient(circle at 40% 80%, var(--neon-primary-glow) 0%, transparent 60%),
+    radial-gradient(circle at 70% 70%, var(--neon-accent-glow) 0%, transparent 40%);
+  position: relative;
+}
+
+/* Efeito de grid cyberpunk sutil com nova cor */
+[data-theme="dark"] body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(129, 140, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129, 140, 248, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Utilitários */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-tertiary {
+  color: var(--color-tertiary);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.bg-light {
+  background-color: var(--color-light-gray);
+}
+
+/* Uniformizar o fundo de todas as seções no modo escuro
+   para o mesmo visual do "Sobre Mim" */
+[data-theme="dark"] .bg-light {
+  background-color: var(--bg-primary);
+}
+
+[data-theme="dark"] .section {
+  background-color: var(--bg-primary);
+}
+
+.section {
+  padding: var(--spacing-2xl) 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+  position: relative;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .section-title {
+  text-shadow: 0 0 20px var(--neon-primary-glow);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3rem;
+  height: 2px;
+  background: var(--gradient-accent);
+  border-radius: 2px;
+}
+
+[data-theme="dark"] .section-title::after {
+  background: var(--gradient-contrast);
+  box-shadow: 0 0 10px var(--neon-primary-glow);
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-accent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Cards no modo escuro */
+[data-theme="dark"] .card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--color-medium-gray);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 20px var(--neon-primary-glow);
+  transform: translateY(-4px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .section {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-light-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-accent);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-secondary);
+}
+
+/* Scrollbar no modo escuro */
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--gradient-accent);
+  box-shadow: 0 0 10px var(--neon-purple-glow);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-primary);
+  box-shadow: 0 0 15px var(--neon-purple-glow);
+}
