@@ -36,7 +36,7 @@ const About: React.FC<AboutProps> = ({ education, languages }) => {
             </div>
             <div className="about__highlights">
               <div className="about__highlight">
-                <div className="about__highlight-number">2+</div>
+                <div className="about__highlight-number">3+</div>
                 <div className="about__highlight-text">Anos de Experiência</div>
               </div>
               <div className="about__highlight">

@@ -1,9 +1,9 @@
 .contact__content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--spacing-xl);
   align-items: start;
-  max-width: 1000px;
+  max-width: 680px;
   margin: 0 auto;
 }
 
@@ -71,6 +71,8 @@
   transition: color 0.2s ease;
   padding: 0;
   text-align: left;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact__item-link:hover {
@@ -80,6 +82,8 @@
 .contact__item-text {
   color: var(--color-secondary);
   font-size: 0.95rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact__social {
@@ -111,14 +115,8 @@
   transform: translateY(-2px);
 }
 
-.contact__form-container {
-  background: var(--bg-secondary);
-  border-radius: var(--border-radius-lg);
-  padding: var(--spacing-xl);
-  box-shadow: var(--shadow-md);
-  height: fit-content;
-  border: 1px solid var(--color-medium-gray);
-}
+/* Removido o formulário de contato */
+.contact__form-container { display: none; }
 
 .contact__form-title {
   font-size: 1.5rem;
@@ -216,10 +214,6 @@
     grid-template-columns: 1fr;
     gap: var(--spacing-xl);
   }
-  
-  .contact__form-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 768px) {
@@ -269,5 +263,9 @@
   
   .contact__form-submit {
     padding: var(--spacing-sm) var(--spacing-lg);
+  }
+  
+  .contact__social {
+    flex-direction: column;
   }
 }

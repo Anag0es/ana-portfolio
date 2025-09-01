@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   FaEnvelope, 
   FaPhone, 
   FaMapMarkerAlt, 
   FaGithub, 
-  FaLinkedin, 
-  FaPaperPlane,
-  FaUser,
-  FaComment
+  FaLinkedin
 } from 'react-icons/fa';
 import { PersonalInfo } from '../../types';
 import './Contact.css';
@@ -17,40 +14,6 @@ interface ContactProps {
 }
 
 const Contact: React.FC<ContactProps> = ({ personalInfo }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Criar link mailto com os dados do formulário
-    const subject = encodeURIComponent(formData.subject || 'Contato via Portfólio');
-    const body = encodeURIComponent(
-      `Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`
-    );
-    
-    window.open(`mailto:${personalInfo.email}?subject=${subject}&body=${body}`);
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
-  };
 
   const handleContactClick = (type: string, value: string) => {
     switch (type) {
@@ -128,83 +91,6 @@ const Contact: React.FC<ContactProps> = ({ personalInfo }) => {
                 <span>LinkedIn</span>
               </button>
             </div>
-          </div>
-          
-          <div className="contact__form-container">
-            <form className="contact__form" onSubmit={handleSubmit}>
-              <h3 className="contact__form-title">Envie uma mensagem</h3>
-              
-              <div className="contact__form-grid">
-                <div className="contact__form-group">
-                  <label className="contact__form-label">
-                    <FaUser className="contact__form-icon" />
-                    Nome
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="contact__form-input"
-                    placeholder="Seu nome completo"
-                    required
-                  />
-                </div>
-                
-                <div className="contact__form-group">
-                  <label className="contact__form-label">
-                    <FaEnvelope className="contact__form-icon" />
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="contact__form-input"
-                    placeholder="seu.email@exemplo.com"
-                    required
-                  />
-                </div>
-              </div>
-              
-              <div className="contact__form-group">
-                <label className="contact__form-label">
-                  <FaComment className="contact__form-icon" />
-                  Assunto
-                </label>
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  className="contact__form-input"
-                  placeholder="Assunto da mensagem"
-                  required
-                />
-              </div>
-              
-              <div className="contact__form-group">
-                <label className="contact__form-label">
-                  <FaComment className="contact__form-icon" />
-                  Mensagem
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  className="contact__form-textarea"
-                  placeholder="Escreva sua mensagem aqui..."
-                  rows={5}
-                  required
-                />
-              </div>
-              
-              <button type="submit" className="contact__form-submit">
-                <FaPaperPlane />
-                <span>Enviar Mensagem</span>
-              </button>
-            </form>
           </div>
         </div>
       </div>

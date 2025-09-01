@@ -134,6 +134,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 
 /* Background cyberpunk para modo escuro */
@@ -168,6 +169,15 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-md);
+}
+
+/* Mídia fluida: evita overflow horizontal de imagens/mídias */
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
 }
 
 .text-center {
@@ -301,6 +311,16 @@ body {
   
   .section-title {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
   }
 }
 

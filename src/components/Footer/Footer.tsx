@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope, FaHeart, FaArrowUp } from 'react-icons/fa';
+import Logo from '../Logo/Logo';
 import { PersonalInfo } from '../../types';
 import './Footer.css';
 
@@ -34,9 +35,7 @@ const Footer: React.FC<FooterProps> = ({ personalInfo }) => {
         <div className="footer__content">
           <div className="footer__main">
             <div className="footer__brand">
-              <span className="footer__logo-text">
-                {personalInfo.name.split(' ').map(n => n[0]).join('')}
-              </span>
+              <Logo size="medium" variant="gradient" animated={true} />
               <div className="footer__brand-info">
                 <h3 className="footer__brand-name">{personalInfo.name}</h3>
                 <p className="footer__brand-title">{personalInfo.title}</p>
@@ -78,7 +77,7 @@ const Footer: React.FC<FooterProps> = ({ personalInfo }) => {
           
           <div className="footer__bottom">
             <p className="footer__copyright">
-              © {currentYear} {personalInfo.name} • Feito com <FaHeart className="footer__heart" /> usando React & TypeScript
+              © {currentYear} {personalInfo.name} • Feito com <FaHeart className="footer__heart" />
             </p>
           </div>
         </div>
